@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Dev | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">AMISHA<span>.BODO</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="fade-in">Hi, I'm <span class="highlight">Amisha</span></h1>
+      <p class="fade-in">Full Stack Developer</p>
+      <div class="hero-buttons fade-in">
+        <a href="#projects" class="btn primary-btn">View My Work</a>
+        <a href="#contact" class="btn secondary-btn">Let's Talk</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- About Section -->
+    <section id="about" class="scroll-reveal">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I build clean, efficient digital solutions specializing in fluid responsive layouts and high-performance applications. My core engineering philosophy balances clean code metrics with exceptional, user-centered interaction design paradigms.</p>
+          <blockquote>"Simplicity is the ultimate sophistication." — Leonardo da Vinci</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="scroll-reveal">
+      <h2 class="section-title">Core Competencies</h2>
+      <div class="skills-grid">
+        <div class="skill-card"><h3>Frontend</h3><p>HTML5, CSS3/SCSS, Modern JavaScript, React.js</p></div>
+        <div class="skill-card"><h3>Backend</h3><p>Node.js, Express, Python, RESTful API Engineering</p></div>
+        <div class="skill-card"><h3>Database & DevOps</h3><p>PostgreSQL, MongoDB, Docker, Git Ecosystems</p></div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="scroll-reveal">
+      <h2 class="section-title">Featured Applications</h2>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-img-placeholder">📊 E-Commerce Engine</div>
+          <div class="project-info">
+            <h3>Enterprise Analytics</h3>
+            <p>Real-time telemetry pipeline utilizing Next.js and Tailwind CSS interfaces.</p>
+            <div class="project-links">
+              <a href="#" class="project-link">Live Demo</a>
+              <a href="#" class="project-link repo">Repository</a>
+            </div>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-img-placeholder">🚀 Automation Engine</div>
+          <div class="project-info">
+            <h3>DevOps Automation Suite</h3>
+            <p>Node CLI optimization tools reducing deployment build steps significantly.</p>
+            <div class="project-links">
+              <a href="#" class="project-link">Live Demo</a>
+              <a href="#" class="project-link repo">Repository</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="scroll-reveal">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-card">
+        <p class="contact-lead">Have a system requirement or looking to scale a product infrastructure? Drop a line below.</p>
+        <form id="contactForm" class="contact-form" onsubmit="event.preventDefault(); alert('Message simulation transmitted successfully.');">
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Your Email Address" required>
+          </div>
+          <div class="form-group">
+            <textarea id="message" rows="5" placeholder="Project details or objective notes..." required></textarea>
+          </div>
+          <button type="submit" class="btn primary-btn block-btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Alex Dev. All rights reserved. Architected with raw passion.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+/* ==========================================================================
+   1. System Initialization & Design Tokens
+   ========================================================================== */
+:root {
+  --bg-dark: #090d16;
+  --bg-card: rgba(17, 24, 39, 0.7);
+  --border-glass: rgba(255, 255, 255, 0.06);
+  --text-bright: #f3f4f6;
+  --text-dim: #9ca3af;
+  --primary-accent: #6366f1;
+  --secondary-glow: #3b82f6;
+  
+  --max-width: 1100px;
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-bright);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 6rem 0 3rem 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.03em;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 4px;
+  background: var(--primary-accent);
+  margin-top: 0.5rem;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   2. Navigation Component
+   ========================================================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(9, 13, 22, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-glass);
+  z-index: 1000;
+  transition: var(--transition-smooth);
+}
+
+.nav-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  color: var(--text-bright);
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 1.3rem;
+  letter-spacing: -0.05em;
+}
+
+.nav-logo span { color: var(--primary-accent); }
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.nav-links a:hover { color: var(--text-bright); }
+
+.menu-toggle { display: none; cursor: pointer; }
+.menu-toggle .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: var(--text-bright);
+  transition: all 0.3s ease-in-out;
+}
+
+/* ==========================================================================
+   3. Hero Segment
+   ========================================================================== */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at 50% 30%, #1e1b4b 0%, var(--bg-dark) 70%);
+  padding: 0 1.5rem;
+}
+
+.hero h1 {
+  font-size: 3.8rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.hero .highlight {
+  background: linear-gradient(to right, #818cf8, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: var(--text-dim);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+/* UI Interactive Control Accents */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+}
+
+.primary-btn {
+  background: var(--primary-accent);
+  color: white;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+}
+.primary-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6); }
+
+.secondary-btn {
+  border: 1px solid var(--border-glass);
+  color: var(--text-bright);
+  margin-left: 1rem;
+}
+.secondary-btn:hover { background: rgba(255, 255, 255, 0.03); }
+
+/* ==========================================================================
+   4. Content Modular Cards (About, Skills, Projects)
+   ========================================================================== */
+.about-text p { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 1.5rem; }
+blockquote {
+  border-left: 3px solid var(--primary-accent);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--text-bright);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: var(--transition-smooth);
+}
+.skill-card:hover { border-color: rgba(99, 102, 241, 0.4); transform: translateY(-4px); }
+.skill-card h3 { margin-bottom: 0.75rem; font-size: 1.25rem; }
+.skill-card p { color: var(--text-dim); font-size: 0.95rem; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+.project-card:hover { border-color: rgba(99, 102, 241, 0.3); transform: translateY(-4px); }
+
+.project-img-placeholder {
+  background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.project-info { padding: 1.5rem; }
+.project-info h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.project-info p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.5rem; min-height: 45px; }
+
+.project-links { display: flex; gap: 1rem; }
+.project-link { text-decoration: none; font-size: 0.9rem; font-weight: 600; color: var(--primary-accent); }
+.project-link.repo { color: var(--text-dim); }
+.project-link:hover { text-decoration: underline; }
+
+/* ==========================================================================
+   5. Interactive Contact Pipeline
+   ========================================================================== */
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-lead { text-align: center; color: var(--text-dim); margin-bottom: 2rem; }
+
+.contact-form .form-group { margin-bottom: 1.25rem; }
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-glass);
+  color: var(--text-bright);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+}
+.block-btn { width: 100%; text-align: center; cursor: pointer; border: none; }
+
+footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border-glass);
+  margin-top: 4rem;
+}
+
+/* ==========================================================================
+   6. Animation States & Media Brakpoints
+   ========================================================================== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.6rem; }
+  .nav-links {
+    position: fixed;
+    left: -100%;
+    top: 60px;
+    flex-direction: column;
+    background: #090d16;
+    width: 100%;
+    text-align: center;
+    gap: 0;
+    transition: 0.3s;
+    border-bottom: 1px solid var(--border-glass);
+  }
+  .nav-links.active { left: 0; }
+  .nav-links li { width: 100%; }
+  .nav-links a { padding: 1.5rem; display: block; }
+  .menu-toggle { display: block; }
+  .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+  .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
