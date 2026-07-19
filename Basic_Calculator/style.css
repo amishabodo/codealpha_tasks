@@ -1,0 +1,154 @@
+/* ==========================================================================
+   1. Setup & Variables
+   ========================================================================== */
+:root {
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  --calc-bg: rgba(30, 41, 59, 0.7);
+  --screen-bg: rgba(15, 23, 42, 0.6);
+  --text-primary: #f8fafc;
+  --text-muted: #64748b;
+  --accent-purple: #818cf8;
+  --accent-orange: #fb923c;
+  
+  --shadow-base: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  --transition-fast: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* ==========================================================================
+   2. Layout Glass Frame
+   ========================================================================== */
+.calc-container {
+  background: var(--calc-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  width: 100%;
+  max-width: 360px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-base);
+}
+
+/* ==========================================================================
+   3. Screen Output Layout
+   ========================================================================== */
+.display-screen {
+  background: var(--screen-bg);
+  border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  margin-bottom: 1.25rem;
+  text-align: right;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.expression-log {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  min-height: 1.2rem;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.05em;
+}
+
+.current-value {
+  color: var(--text-primary);
+  font-size: 2.5rem;
+  font-weight: 600;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Custom scrollbar configurations for long values */
+.current-value::-webkit-scrollbar {
+  height: 3px;
+}
+.current-value::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+/* ==========================================================================
+   4. Tactile Grid Keypad Buttons
+   ========================================================================== */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.btn {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.1rem 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border-radius: 14px;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn:active, .btn.active-press {
+  transform: scale(0.94);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Component Variation Accents */
+.action-btn {
+  color: var(--accent-purple);
+  background: rgba(129, 140, 248, 0.08);
+}
+.action-btn:hover { background: rgba(129, 140, 248, 0.15); }
+
+.operator-btn {
+  color: var(--accent-orange);
+  background: rgba(251, 146, 60, 0.08);
+}
+.operator-btn:hover { background: rgba(251, 146, 60, 0.15); }
+
+.equal-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  grid-row: span 2;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+.equal-btn:hover {
+  background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
+}
+
+.zero {
+  grid-column: span 2;
+}
